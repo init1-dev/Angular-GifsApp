@@ -1,0 +1,14 @@
+<div class="bg-dark border-right p-3" id="sidebar">
+    <h3 class="text-light">Gifs-App</h3>
+
+    <hr class="text-light">
+
+    <div class="list-group list-reset">
+        <a href="#" class="busqueda mb-1 bg-light rounded" *ngFor="let busqueda of historial">
+            {{ busqueda | titlecase }}
+            <button class="btn btn-sm btn-danger">
+                X
+            </button>
+        </a>
+    </div>
+</div>
