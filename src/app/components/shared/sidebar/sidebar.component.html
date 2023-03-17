@@ -1,12 +1,32 @@
 <div class="bg-dark border-right p-3" id="sidebar">
     <h3 class="text-light">Gifs-App</h3>
+    <div class="d-flex justify-content-around">
+        <button class="btn btn-sm btn-success rounded reload w-100" (click)="vaciarStorage()">
+            Clean Storage
+        </button>
+    </div>
+    <div class="mt-2">
+        <p class="text-light">
+            Nº resultados:
+            <select name="resultados" id="resultados" [(ngModel)]="selectedOption" (ngModelChange)="cambiar()">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+            </select>
+        </p>
+    </div>
 
     <hr class="text-light">
 
     <div class="list-group list-reset">
-        <a href="#" class="busqueda mb-1 bg-light rounded" *ngFor="let busqueda of historial">
+        <a 
+            href="#" 
+            (click)="buscar( busqueda )"
+            class="busqueda mb-1 bg-light rounded" 
+            *ngFor="let busqueda of historial">
             {{ busqueda | titlecase }}
-            <button class="btn btn-sm btn-danger">
+            <button class="btn btn-sm btn-danger deleteBtn">
                 X
             </button>
         </a>

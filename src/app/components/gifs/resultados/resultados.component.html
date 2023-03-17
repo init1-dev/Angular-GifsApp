@@ -1,14 +1,15 @@
 <div class="row">
-    <div class="col-md-4 col-sm-6" *ngFor="let gif of resultados">
-        <div class="card">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-6" *ngFor="let gif of resultados">
+        <div class="card mb-3 animate__animated animate__fadeIn">
             <img 
                 [src]="gif.images.downsized_medium.url" 
                 alt="gif.title"
                 class="card-img-top"
+                (click)="copyToClipboard(gif.images.original.url)"
             >
             <div class="card-body">
                 <p class="card-text">
-                    {{ gif.title }}
+                    {{ gif.title == '' || gif.title == ' ' ? 'Sin título' : gif.title }}
                 </p>
             </div>
         </div>

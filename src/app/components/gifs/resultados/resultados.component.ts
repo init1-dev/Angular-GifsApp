@@ -12,7 +12,14 @@ export class ResultadosComponent implements OnInit {
     return this.gifsService.resultados;
   }
 
-  constructor( private gifsService: GifsService ) { }
+  copyToClipboard( url: string ) {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(url);
+    }
+    return Promise.reject("The Clipboard API is not available.");
+  };
+
+  constructor( private gifsService: GifsService ) {}
 
   ngOnInit(): void {
   }
